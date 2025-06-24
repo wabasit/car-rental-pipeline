@@ -22,3 +22,7 @@ location_metrics = rental_df.groupBy("pickup_location").agg(
     min("total_amount").alias("min_transaction"),
     countDistinct("vehicle_id").alias("unique_vehicles_used")
 )
+
+# Join with location names
+location_metrics = location_metrics.join(location_df.withColumnRenamed("location_id", "pickup_location"),
+                                         on="pickup_location", how="left")
