@@ -3,4 +3,6 @@ from pyspark.sql.functions import col, count, sum, avg, max, min, to_date, unix_
 
 spark = SparkSession.builder.appName("UserTransactionAnalysis").getOrCreate()
 
+# Read datasets
+rental_df = spark.read.csv("s3://rentalbk/raw_data/rental_transactions.csv", header=True, inferSchema=True)
 
