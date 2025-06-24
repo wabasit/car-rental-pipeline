@@ -26,3 +26,8 @@ location_metrics = rental_df.groupBy("pickup_location").agg(
 # Join with location names
 location_metrics = location_metrics.join(location_df.withColumnRenamed("location_id", "pickup_location"),
                                          on="pickup_location", how="left")
+
+# --- KPI 2: Rental Duration & Revenue by Vehicle Type ---
+# Join with vehicle type
+vehicle_metrics = rental_df.join(vehicle_df.select("vehicle_id", "vehicle_type"), on="vehicle_id", how="left")
+
