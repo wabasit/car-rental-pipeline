@@ -11,4 +11,5 @@ rental_df = rental_df.withColumn("rental_duration_hours",
     (unix_timestamp("rental_end_time") - unix_timestamp("rental_start_time")) / 3600
 )
 
+rental_df = rental_df.withColumn("rental_date", to_date("rental_start_time"))
 
