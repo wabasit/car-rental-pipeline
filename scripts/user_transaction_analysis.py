@@ -19,3 +19,14 @@ daily_metrics = rental_df.groupBy("rental_date").agg(
     sum("total_amount").alias("daily_revenue")
 )
 
+# --- KPI 2: User Metrics ---
+user_metrics = rental_df.groupBy("user_id").agg(
+    count("*").alias("total_transactions"),
+    sum("total_amount").alias("total_spent"),
+    avg("total_amount").alias("avg_transaction"),
+    max("total_amount").alias("max_transaction"),
+    min("total_amount").alias("min_transaction"),
+    sum("rental_duration_hours").alias("total_rental_hours")
+)
+
+
