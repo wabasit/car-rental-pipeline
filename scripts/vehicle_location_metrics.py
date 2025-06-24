@@ -31,3 +31,7 @@ location_metrics = location_metrics.join(location_df.withColumnRenamed("location
 # Join with vehicle type
 vehicle_metrics = rental_df.join(vehicle_df.select("vehicle_id", "vehicle_type"), on="vehicle_id", how="left")
 
+vehicle_type_metrics = vehicle_metrics.groupBy("vehicle_type").agg(
+    sum("rental_duration_hours").alias("total_rental_hours"),
+    sum("total_amount").alias("total_revenue")
+)
