@@ -35,3 +35,7 @@ vehicle_type_metrics = vehicle_metrics.groupBy("vehicle_type").agg(
     sum("rental_duration_hours").alias("total_rental_hours"),
     sum("total_amount").alias("total_revenue")
 )
+
+# Save to S3 as Parquet
+location_metrics.write.mode("overwrite").parquet("s3://rentalbk/processed/location_metrics/")
+vehicle_type_metrics.write.mode("overwrite").parquet("s3://rentalbk/processed/vehicle_type_metrics/")
