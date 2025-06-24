@@ -29,4 +29,6 @@ user_metrics = rental_df.groupBy("user_id").agg(
     sum("rental_duration_hours").alias("total_rental_hours")
 )
 
-
+# Save to S3
+daily_metrics.write.mode("overwrite").parquet("s3://rentalbk/processed/daily_metrics/")
+user_metrics.write.mode("overwrite").parquet("s3://rentalbk/processed/user_metrics/")
