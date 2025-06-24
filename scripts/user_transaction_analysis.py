@@ -13,3 +13,9 @@ rental_df = rental_df.withColumn("rental_duration_hours",
 
 rental_df = rental_df.withColumn("rental_date", to_date("rental_start_time"))
 
+# --- KPI 1: Daily Metrics ---
+daily_metrics = rental_df.groupBy("rental_date").agg(
+    count("*").alias("daily_transactions"),
+    sum("total_amount").alias("daily_revenue")
+)
+
