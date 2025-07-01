@@ -9,6 +9,7 @@ This repository contains a fully functional big data processing pipeline tailore
 
 The goal of this project is to process, analyze, and generate key performance insights from car rental data in a cost-effective and automated way. The architecture supports batch processing using Apache Spark and facilitates serverless querying, orchestration, and notifications for end-to-end automation.
 
+
 ---
 
 ## Architecture Flow
