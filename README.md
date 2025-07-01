@@ -34,7 +34,7 @@ Lambda (Automated Queries)
    v
 Step Functions (Orchestration and SNS Notifications)
 ```
-![alt text](architecture.png)
+![alt text](architecture.jpg)
 ---
 
 ## Datasets Used
